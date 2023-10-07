@@ -11,7 +11,7 @@ export default [
             "'self'",
             "data:",
             "blob:",
-            "https://wtrasiepl.s3.eu-west-1.amazonaws.com",
+            "https://getreturn.s3.eu-central-1.amazonaws.com",
           ],
           "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
