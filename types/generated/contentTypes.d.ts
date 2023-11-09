@@ -424,6 +424,41 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
+export interface ApiCustomerMessageCustomerMessage
+  extends Schema.CollectionType {
+  collectionName: 'customer_messages';
+  info: {
+    singularName: 'customer-message';
+    pluralName: 'customer-messages';
+    displayName: 'customer-message';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Required;
+    type: Attribute.Enumeration<['contact', 'feedback']>;
+    status: Attribute.Enumeration<['new', 'replied', 'unanswered', 'delete']>;
+    rating: Attribute.Enumeration<['best', 'normal', 'wrong']>;
+    message: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer-message.customer-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer-message.customer-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -798,6 +833,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::article.article': ApiArticleArticle;
+      'api::customer-message.customer-message': ApiCustomerMessageCustomerMessage;
       'api::tag.tag': ApiTagTag;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
