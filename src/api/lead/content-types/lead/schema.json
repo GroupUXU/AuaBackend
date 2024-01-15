@@ -4,7 +4,8 @@
   "info": {
     "singularName": "lead",
     "pluralName": "leads",
-    "displayName": "lead"
+    "displayName": "lead",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -28,6 +29,34 @@
     "phone": {
       "type": "string",
       "required": true
+    },
+    "recid": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "waitForContract",
+        "rejected",
+        "recontact",
+        "atAnalysis",
+        "atLawyer",
+        "inCourt",
+        "wonInCourt",
+        "lostInCourt"
+      ],
+      "default": "new",
+      "required": true
+    },
+    "pesel": {
+      "type": "string"
+    },
+    "loans": {
+      "type": "dynamiczone",
+      "components": [
+        "others.loan"
+      ]
     }
   }
 }
