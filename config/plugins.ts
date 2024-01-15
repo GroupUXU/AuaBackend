@@ -38,13 +38,5 @@ module.exports = ({env}) => ({
         tracing: false,
       },
     },
-  },
-  meilisearch: {
-    config: {
-      // Your meili host
-      host: "https://ms-f01677209658-5386.fra.meilisearch.io",
-      // Your master key or private key
-      apiKey: env("MEILI_SEARCH"),
-    }
   }
 });

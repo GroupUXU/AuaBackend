@@ -465,6 +465,7 @@ export interface ApiLeadLead extends Schema.CollectionType {
     singularName: 'lead';
     pluralName: 'leads';
     displayName: 'lead';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -474,6 +475,24 @@ export interface ApiLeadLead extends Schema.CollectionType {
     secondName: Attribute.String & Attribute.Required;
     email: Attribute.Email & Attribute.Required & Attribute.Unique;
     phone: Attribute.String & Attribute.Required;
+    recid: Attribute.String;
+    status: Attribute.Enumeration<
+      [
+        'new',
+        'waitForContract',
+        'rejected',
+        'recontact',
+        'atAnalysis',
+        'atLawyer',
+        'inCourt',
+        'wonInCourt',
+        'lostInCourt'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'new'>;
+    pesel: Attribute.String;
+    loans: Attribute.DynamicZone<['others.loan']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &

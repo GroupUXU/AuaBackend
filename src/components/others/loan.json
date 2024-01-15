@@ -1,0 +1,75 @@
+{
+  "collectionName": "components_others_loans",
+  "info": {
+    "displayName": "loan",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "loanID": {
+      "type": "string",
+      "required": true
+    },
+    "numberOfInstallments": {
+      "type": "integer",
+      "required": true
+    },
+    "loanType": {
+      "type": "enumeration",
+      "enum": [
+        "mortgage",
+        "cash"
+      ],
+      "required": true,
+      "default": "cash"
+    },
+    "loanStartDate": {
+      "type": "date",
+      "required": true
+    },
+    "amountDisbursedByBank": {
+      "type": "decimal",
+      "required": true
+    },
+    "loanOriginationFees": {
+      "type": "decimal",
+      "required": true
+    },
+    "loanInsuranceCost": {
+      "type": "decimal",
+      "required": true
+    },
+    "otherLoanCosts": {
+      "type": "decimal",
+      "required": true
+    },
+    "interestOnLoanOrigination": {
+      "type": "decimal",
+      "required": true
+    },
+    "remainingLoanBalance": {
+      "type": "decimal",
+      "required": true
+    },
+    "futureInstallmentSavings": {
+      "type": "decimal",
+      "required": true
+    },
+    "ourCommissionForThisAgreement": {
+      "type": "decimal",
+      "required": true,
+      "default": 50
+    },
+    "documents": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

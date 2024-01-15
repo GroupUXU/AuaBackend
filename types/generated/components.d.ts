@@ -93,6 +93,33 @@ export interface OthersEmail extends Schema.Component {
   };
 }
 
+export interface OthersLoan extends Schema.Component {
+  collectionName: 'components_others_loans';
+  info: {
+    displayName: 'loan';
+    icon: 'file';
+  };
+  attributes: {
+    loanID: Attribute.String & Attribute.Required;
+    numberOfInstallments: Attribute.Integer & Attribute.Required;
+    loanType: Attribute.Enumeration<['mortgage', 'cash']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'cash'>;
+    loanStartDate: Attribute.Date & Attribute.Required;
+    amountDisbursedByBank: Attribute.Decimal & Attribute.Required;
+    loanOriginationFees: Attribute.Decimal & Attribute.Required;
+    loanInsuranceCost: Attribute.Decimal & Attribute.Required;
+    otherLoanCosts: Attribute.Decimal & Attribute.Required;
+    interestOnLoanOrigination: Attribute.Decimal & Attribute.Required;
+    remainingLoanBalance: Attribute.Decimal & Attribute.Required;
+    futureInstallmentSavings: Attribute.Decimal & Attribute.Required;
+    ourCommissionForThisAgreement: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.DefaultTo<50>;
+    documents: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface OthersPhone extends Schema.Component {
   collectionName: 'components_others_phones';
   info: {
@@ -139,6 +166,7 @@ declare module '@strapi/strapi' {
       'content-parts.you-tube': ContentPartsYouTube;
       'content-parts.youtube': ContentPartsYoutube;
       'others.email': OthersEmail;
+      'others.loan': OthersLoan;
       'others.phone': OthersPhone;
       'others.seo': OthersSeo;
       'stats.views': StatsViews;
