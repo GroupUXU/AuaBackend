@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_others_dokumenties",
+  "info": {
+    "displayName": "dokumenty",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "dokumenty": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

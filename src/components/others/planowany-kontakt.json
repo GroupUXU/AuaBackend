@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_others_planowany_kontakts",
+  "info": {
+    "displayName": "planowanyKontakt",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "kiedy": {
+      "type": "datetime",
+      "required": true
+    },
+    "uwagi": {
+      "type": "text"
+    }
+  }
+}

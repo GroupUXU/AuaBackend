@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_others_typ_pozyczkis",
+  "info": {
+    "displayName": "typPozyczki",
+    "icon": "briefcase",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "typ": {
+      "type": "enumeration",
+      "enum": [
+        "pozyczka",
+        "kredyt",
+        "hipoteka"
+      ]
+    }
+  }
+}

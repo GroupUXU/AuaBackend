@@ -44,7 +44,14 @@
         "atLawyer",
         "inCourt",
         "wonInCourt",
-        "lostInCourt"
+        "lostInCourt",
+        "nowy",
+        "odrzucony",
+        "zakonczony ",
+        "analiza",
+        "umowa",
+        "dokumentacja",
+        "prawnik"
       ],
       "default": "new",
       "required": true
@@ -57,6 +64,19 @@
       "components": [
         "others.loan"
       ]
+    },
+    "planowanyKontakt": {
+      "type": "dynamiczone",
+      "components": [
+        "others.planowany-kontakt"
+      ],
+      "required": true
+    },
+    "kredyty": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kredyty.kredyty",
+      "mappedBy": "lead"
     }
   }
 }

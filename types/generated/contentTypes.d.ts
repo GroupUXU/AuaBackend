@@ -361,189 +361,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiArticleArticle extends Schema.CollectionType {
-  collectionName: 'articles';
-  info: {
-    singularName: 'article';
-    pluralName: 'articles';
-    displayName: 'articles';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    type: Attribute.Enumeration<['article', 'service']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'article'>;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        minLength: 1;
-        maxLength: 160;
-      }>;
-    cover: Attribute.Media & Attribute.Required;
-    lead: Attribute.Component<'content-parts.lead'> & Attribute.Required;
-    contentparts: Attribute.DynamicZone<
-      [
-        'content-parts.txt',
-        'content-parts.media',
-        'content-parts.quote',
-        'content-parts.youtube'
-      ]
-    > &
-      Attribute.Required;
-    views: Attribute.Component<'stats.views'> & Attribute.Required;
-    tags: Attribute.Relation<
-      'api::article.article',
-      'manyToMany',
-      'api::tag.tag'
-    >;
-    authors: Attribute.Relation<
-      'api::article.article',
-      'manyToMany',
-      'plugin::users-permissions.user'
-    >;
-    seo: Attribute.Component<'others.seo'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::article.article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::article.article',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCustomerMessageCustomerMessage
-  extends Schema.CollectionType {
-  collectionName: 'customer_messages';
-  info: {
-    singularName: 'customer-message';
-    pluralName: 'customer-messages';
-    displayName: 'customer-message';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    email: Attribute.Email & Attribute.Required;
-    type: Attribute.Enumeration<['contact', 'feedback']>;
-    status: Attribute.Enumeration<['new', 'replied', 'unanswered', 'delete']>;
-    rating: Attribute.Enumeration<['best', 'normal', 'wrong']>;
-    message: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::customer-message.customer-message',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::customer-message.customer-message',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiLeadLead extends Schema.CollectionType {
-  collectionName: 'leads';
-  info: {
-    singularName: 'lead';
-    pluralName: 'leads';
-    displayName: 'lead';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    secondName: Attribute.String & Attribute.Required;
-    email: Attribute.Email & Attribute.Required & Attribute.Unique;
-    phone: Attribute.String & Attribute.Required;
-    recid: Attribute.String;
-    status: Attribute.Enumeration<
-      [
-        'new',
-        'waitForContract',
-        'rejected',
-        'recontact',
-        'atAnalysis',
-        'atLawyer',
-        'inCourt',
-        'wonInCourt',
-        'lostInCourt'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'new'>;
-    pesel: Attribute.String;
-    loans: Attribute.DynamicZone<['others.loan']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTagTag extends Schema.CollectionType {
-  collectionName: 'tags';
-  info: {
-    singularName: 'tag';
-    pluralName: 'tags';
-    displayName: 'tags';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    typ: Attribute.Enumeration<['other', 'city']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'city'>;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMaxLength<{
-        maxLength: 160;
-      }>;
-    cover: Attribute.Media & Attribute.Required;
-    lead: Attribute.Component<'content-parts.lead'> & Attribute.Required;
-    contentparts: Attribute.DynamicZone<['content-parts.txt']> &
-      Attribute.Required;
-    views: Attribute.Component<'stats.views'>;
-    articles: Attribute.Relation<
-      'api::tag.tag',
-      'manyToMany',
-      'api::article.article'
-    >;
-    seo: Attribute.Component<'others.seo'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -865,6 +682,288 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiArticleArticle extends Schema.CollectionType {
+  collectionName: 'articles';
+  info: {
+    singularName: 'article';
+    pluralName: 'articles';
+    displayName: 'articles';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    type: Attribute.Enumeration<['article', 'service']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'article'>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 1;
+        maxLength: 160;
+      }>;
+    cover: Attribute.Media & Attribute.Required;
+    lead: Attribute.Component<'content-parts.lead'> & Attribute.Required;
+    contentparts: Attribute.DynamicZone<
+      [
+        'content-parts.txt',
+        'content-parts.media',
+        'content-parts.quote',
+        'content-parts.youtube'
+      ]
+    > &
+      Attribute.Required;
+    views: Attribute.Component<'stats.views'> & Attribute.Required;
+    tags: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'api::tag.tag'
+    >;
+    authors: Attribute.Relation<
+      'api::article.article',
+      'manyToMany',
+      'plugin::users-permissions.user'
+    >;
+    seo: Attribute.Component<'others.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCustomerMessageCustomerMessage
+  extends Schema.CollectionType {
+  collectionName: 'customer_messages';
+  info: {
+    singularName: 'customer-message';
+    pluralName: 'customer-messages';
+    displayName: 'customer-message';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email & Attribute.Required;
+    type: Attribute.Enumeration<['contact', 'feedback']>;
+    status: Attribute.Enumeration<['new', 'replied', 'unanswered', 'delete']>;
+    rating: Attribute.Enumeration<['best', 'normal', 'wrong']>;
+    message: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::customer-message.customer-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::customer-message.customer-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiKredytyKredyty extends Schema.CollectionType {
+  collectionName: 'kredyties';
+  info: {
+    singularName: 'kredyty';
+    pluralName: 'kredyties';
+    displayName: 'kredyty';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    imie: Attribute.String & Attribute.Required;
+    nazwisko: Attribute.String & Attribute.Required;
+    ulica: Attribute.String;
+    numerDomu: Attribute.String;
+    numerMieszkania: Attribute.String;
+    kodPocztowy: Attribute.String;
+    miasto: Attribute.String;
+    numerUmowyKredytowej: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique;
+    dataUmowyKredytowej: Attribute.Date & Attribute.Required;
+    dataPierwszejRaty: Attribute.Date & Attribute.Required;
+    kwotaWyplaconaPrzezBank: Attribute.String & Attribute.Required;
+    prowizjaKredytu: Attribute.String & Attribute.Required;
+    oprocentowanie: Attribute.String & Attribute.Required;
+    oprocentowanieTyp: Attribute.Enumeration<['sta\u0142e', 'zmienne']> &
+      Attribute.Required;
+    ratyTyp: Attribute.Enumeration<['stale', 'maljace']> & Attribute.Required;
+    okresKredytuWMiesiacach: Attribute.Integer & Attribute.Required;
+    ubezpieczenieKredytu: Attribute.String & Attribute.Required;
+    odsetkiKredytu: Attribute.String & Attribute.Required;
+    inneKosztyKredytu: Attribute.String & Attribute.Required;
+    rsso: Attribute.String & Attribute.Required;
+    calkowityKosztKredytu: Attribute.String & Attribute.Required;
+    calkowitaKwotaDoZaplaty: Attribute.String & Attribute.Required;
+    splaconeDoDnia: Attribute.DynamicZone<['others.splacone']> &
+      Attribute.Required;
+    pozostaloDoSplacenia: Attribute.DynamicZone<['others.splacone']> &
+      Attribute.Required;
+    status: Attribute.DynamicZone<['others.status']>;
+    typPozyczki: Attribute.Enumeration<
+      [
+        'gotowkowyKredyt',
+        'gotowkowyPozyczka',
+        'hipotekaPozyczka',
+        'hipotekaKredyt',
+        'samochodwyPozyczka',
+        'samochodwyKredyt',
+        'konsolidacjaPozyczka',
+        'konsolidacjaKredyt'
+      ]
+    >;
+    odsetkiDoZwrotuLacznie: Attribute.String & Attribute.Required;
+    oszczednoscNaPrzyszlychRatach: Attribute.String & Attribute.Required;
+    naszaProwizjaProcent: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'50'>;
+    dokumentyKredytu: Attribute.DynamicZone<['others.dokumenty']>;
+    dokumentyDlaKlienta: Attribute.DynamicZone<['others.dokumenty']> &
+      Attribute.Required;
+    lead: Attribute.Relation<
+      'api::kredyty.kredyty',
+      'manyToOne',
+      'api::lead.lead'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::kredyty.kredyty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::kredyty.kredyty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLeadLead extends Schema.CollectionType {
+  collectionName: 'leads';
+  info: {
+    singularName: 'lead';
+    pluralName: 'leads';
+    displayName: 'lead';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    secondName: Attribute.String & Attribute.Required;
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    phone: Attribute.String & Attribute.Required;
+    recid: Attribute.String;
+    status: Attribute.Enumeration<
+      [
+        'new',
+        'waitForContract',
+        'rejected',
+        'recontact',
+        'atAnalysis',
+        'atLawyer',
+        'inCourt',
+        'wonInCourt',
+        'lostInCourt',
+        'nowy',
+        'odrzucony',
+        'zakonczony ',
+        'analiza',
+        'umowa',
+        'dokumentacja',
+        'prawnik'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'new'>;
+    pesel: Attribute.String;
+    loans: Attribute.DynamicZone<['others.loan']>;
+    planowanyKontakt: Attribute.DynamicZone<['others.planowany-kontakt']> &
+      Attribute.Required;
+    kredyty: Attribute.Relation<
+      'api::lead.lead',
+      'oneToMany',
+      'api::kredyty.kredyty'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::lead.lead', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'tags';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    typ: Attribute.Enumeration<['other', 'city']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'city'>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    cover: Attribute.Media & Attribute.Required;
+    lead: Attribute.Component<'content-parts.lead'> & Attribute.Required;
+    contentparts: Attribute.DynamicZone<['content-parts.txt']> &
+      Attribute.Required;
+    views: Attribute.Component<'stats.views'>;
+    articles: Attribute.Relation<
+      'api::tag.tag',
+      'manyToMany',
+      'api::article.article'
+    >;
+    seo: Attribute.Component<'others.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Shared {
     export interface ContentTypes {
@@ -875,16 +974,17 @@ declare module '@strapi/strapi' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::article.article': ApiArticleArticle;
-      'api::customer-message.customer-message': ApiCustomerMessageCustomerMessage;
-      'api::lead.lead': ApiLeadLead;
-      'api::tag.tag': ApiTagTag;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::article.article': ApiArticleArticle;
+      'api::customer-message.customer-message': ApiCustomerMessageCustomerMessage;
+      'api::kredyty.kredyty': ApiKredytyKredyty;
+      'api::lead.lead': ApiLeadLead;
+      'api::tag.tag': ApiTagTag;
     }
   }
 }

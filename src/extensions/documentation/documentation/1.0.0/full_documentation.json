@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-15T19:04:22.410Z"
+    "x-generation-date": "2024-01-28T10:04:48.557Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2833,6 +2833,1601 @@
           }
         }
       },
+      "KredytyRequest": {
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "required": [
+              "imie",
+              "nazwisko",
+              "numerUmowyKredytowej",
+              "dataUmowyKredytowej",
+              "dataPierwszejRaty",
+              "kwotaWyplaconaPrzezBank",
+              "prowizjaKredytu",
+              "oprocentowanie",
+              "oprocentowanieTyp",
+              "ratyTyp",
+              "okresKredytuWMiesiacach",
+              "ubezpieczenieKredytu",
+              "odsetkiKredytu",
+              "inneKosztyKredytu",
+              "rsso",
+              "calkowityKosztKredytu",
+              "calkowitaKwotaDoZaplaty",
+              "splaconeDoDnia",
+              "pozostaloDoSplacenia",
+              "odsetkiDoZwrotuLacznie",
+              "oszczednoscNaPrzyszlychRatach",
+              "naszaProwizjaProcent",
+              "dokumentyDlaKlienta"
+            ],
+            "type": "object",
+            "properties": {
+              "imie": {
+                "type": "string"
+              },
+              "nazwisko": {
+                "type": "string"
+              },
+              "ulica": {
+                "type": "string"
+              },
+              "numerDomu": {
+                "type": "string"
+              },
+              "numerMieszkania": {
+                "type": "string"
+              },
+              "kodPocztowy": {
+                "type": "string"
+              },
+              "miasto": {
+                "type": "string"
+              },
+              "numerUmowyKredytowej": {
+                "type": "string"
+              },
+              "dataUmowyKredytowej": {
+                "type": "string",
+                "format": "date"
+              },
+              "dataPierwszejRaty": {
+                "type": "string",
+                "format": "date"
+              },
+              "kwotaWyplaconaPrzezBank": {
+                "type": "string"
+              },
+              "prowizjaKredytu": {
+                "type": "string"
+              },
+              "oprocentowanie": {
+                "type": "string"
+              },
+              "oprocentowanieTyp": {
+                "type": "string",
+                "enum": [
+                  "stałe",
+                  "zmienne"
+                ]
+              },
+              "ratyTyp": {
+                "type": "string",
+                "enum": [
+                  "stale",
+                  "maljace"
+                ]
+              },
+              "okresKredytuWMiesiacach": {
+                "type": "integer"
+              },
+              "ubezpieczenieKredytu": {
+                "type": "string"
+              },
+              "odsetkiKredytu": {
+                "type": "string"
+              },
+              "inneKosztyKredytu": {
+                "type": "string"
+              },
+              "rsso": {
+                "type": "string"
+              },
+              "calkowityKosztKredytu": {
+                "type": "string"
+              },
+              "calkowitaKwotaDoZaplaty": {
+                "type": "string"
+              },
+              "splaconeDoDnia": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersSplaconeComponent"
+                    }
+                  ]
+                }
+              },
+              "pozostaloDoSplacenia": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersSplaconeComponent"
+                    }
+                  ]
+                }
+              },
+              "status": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersStatusComponent"
+                    }
+                  ]
+                }
+              },
+              "typPozyczki": {
+                "type": "string",
+                "enum": [
+                  "gotowkowyKredyt",
+                  "gotowkowyPozyczka",
+                  "hipotekaPozyczka",
+                  "hipotekaKredyt",
+                  "samochodwyPozyczka",
+                  "samochodwyKredyt",
+                  "konsolidacjaPozyczka",
+                  "konsolidacjaKredyt"
+                ]
+              },
+              "odsetkiDoZwrotuLacznie": {
+                "type": "string"
+              },
+              "oszczednoscNaPrzyszlychRatach": {
+                "type": "string"
+              },
+              "naszaProwizjaProcent": {
+                "type": "string"
+              },
+              "dokumentyKredytu": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersDokumentyComponent"
+                    }
+                  ]
+                }
+              },
+              "dokumentyDlaKlienta": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersDokumentyComponent"
+                    }
+                  ]
+                }
+              },
+              "lead": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
+              }
+            }
+          }
+        }
+      },
+      "KredytyListResponseDataItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Kredyty"
+          }
+        }
+      },
+      "KredytyListResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KredytyListResponseDataItem"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "pagination": {
+                "type": "object",
+                "properties": {
+                  "page": {
+                    "type": "integer"
+                  },
+                  "pageSize": {
+                    "type": "integer",
+                    "minimum": 25
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "maximum": 1
+                  },
+                  "total": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Kredyty": {
+        "type": "object",
+        "required": [
+          "imie",
+          "nazwisko",
+          "numerUmowyKredytowej",
+          "dataUmowyKredytowej",
+          "dataPierwszejRaty",
+          "kwotaWyplaconaPrzezBank",
+          "prowizjaKredytu",
+          "oprocentowanie",
+          "oprocentowanieTyp",
+          "ratyTyp",
+          "okresKredytuWMiesiacach",
+          "ubezpieczenieKredytu",
+          "odsetkiKredytu",
+          "inneKosztyKredytu",
+          "rsso",
+          "calkowityKosztKredytu",
+          "calkowitaKwotaDoZaplaty",
+          "splaconeDoDnia",
+          "pozostaloDoSplacenia",
+          "odsetkiDoZwrotuLacznie",
+          "oszczednoscNaPrzyszlychRatach",
+          "naszaProwizjaProcent",
+          "dokumentyDlaKlienta"
+        ],
+        "properties": {
+          "imie": {
+            "type": "string"
+          },
+          "nazwisko": {
+            "type": "string"
+          },
+          "ulica": {
+            "type": "string"
+          },
+          "numerDomu": {
+            "type": "string"
+          },
+          "numerMieszkania": {
+            "type": "string"
+          },
+          "kodPocztowy": {
+            "type": "string"
+          },
+          "miasto": {
+            "type": "string"
+          },
+          "numerUmowyKredytowej": {
+            "type": "string"
+          },
+          "dataUmowyKredytowej": {
+            "type": "string",
+            "format": "date"
+          },
+          "dataPierwszejRaty": {
+            "type": "string",
+            "format": "date"
+          },
+          "kwotaWyplaconaPrzezBank": {
+            "type": "string"
+          },
+          "prowizjaKredytu": {
+            "type": "string"
+          },
+          "oprocentowanie": {
+            "type": "string"
+          },
+          "oprocentowanieTyp": {
+            "type": "string",
+            "enum": [
+              "stałe",
+              "zmienne"
+            ]
+          },
+          "ratyTyp": {
+            "type": "string",
+            "enum": [
+              "stale",
+              "maljace"
+            ]
+          },
+          "okresKredytuWMiesiacach": {
+            "type": "integer"
+          },
+          "ubezpieczenieKredytu": {
+            "type": "string"
+          },
+          "odsetkiKredytu": {
+            "type": "string"
+          },
+          "inneKosztyKredytu": {
+            "type": "string"
+          },
+          "rsso": {
+            "type": "string"
+          },
+          "calkowityKosztKredytu": {
+            "type": "string"
+          },
+          "calkowitaKwotaDoZaplaty": {
+            "type": "string"
+          },
+          "splaconeDoDnia": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersSplaconeComponent"
+                }
+              ]
+            }
+          },
+          "pozostaloDoSplacenia": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersSplaconeComponent"
+                }
+              ]
+            }
+          },
+          "status": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersStatusComponent"
+                }
+              ]
+            }
+          },
+          "typPozyczki": {
+            "type": "string",
+            "enum": [
+              "gotowkowyKredyt",
+              "gotowkowyPozyczka",
+              "hipotekaPozyczka",
+              "hipotekaKredyt",
+              "samochodwyPozyczka",
+              "samochodwyKredyt",
+              "konsolidacjaPozyczka",
+              "konsolidacjaKredyt"
+            ]
+          },
+          "odsetkiDoZwrotuLacznie": {
+            "type": "string"
+          },
+          "oszczednoscNaPrzyszlychRatach": {
+            "type": "string"
+          },
+          "naszaProwizjaProcent": {
+            "type": "string"
+          },
+          "dokumentyKredytu": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersDokumentyComponent"
+                }
+              ]
+            }
+          },
+          "dokumentyDlaKlienta": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersDokumentyComponent"
+                }
+              ]
+            }
+          },
+          "lead": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "secondName": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "recid": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "new",
+                          "waitForContract",
+                          "rejected",
+                          "recontact",
+                          "atAnalysis",
+                          "atLawyer",
+                          "inCourt",
+                          "wonInCourt",
+                          "lostInCourt",
+                          "nowy",
+                          "odrzucony",
+                          "zakonczony ",
+                          "analiza",
+                          "umowa",
+                          "dokumentacja",
+                          "prawnik"
+                        ]
+                      },
+                      "pesel": {
+                        "type": "string"
+                      },
+                      "loans": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "loanID": {
+                                  "type": "string"
+                                },
+                                "numberOfInstallments": {
+                                  "type": "integer"
+                                },
+                                "loanType": {
+                                  "type": "string",
+                                  "enum": [
+                                    "mortgage",
+                                    "cash"
+                                  ]
+                                },
+                                "loanStartDate": {
+                                  "type": "string",
+                                  "format": "date"
+                                },
+                                "amountDisbursedByBank": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "loanOriginationFees": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "loanInsuranceCost": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "otherLoanCosts": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "interestOnLoanOrigination": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "remainingLoanBalance": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "futureInstallmentSavings": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "ourCommissionForThisAgreement": {
+                                  "type": "number",
+                                  "format": "float"
+                                },
+                                "documents": {
+                                  "type": "object",
+                                  "properties": {
+                                    "data": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "attributes": {
+                                            "type": "object",
+                                            "properties": {
+                                              "name": {
+                                                "type": "string"
+                                              },
+                                              "alternativeText": {
+                                                "type": "string"
+                                              },
+                                              "caption": {
+                                                "type": "string"
+                                              },
+                                              "width": {
+                                                "type": "integer"
+                                              },
+                                              "height": {
+                                                "type": "integer"
+                                              },
+                                              "formats": {},
+                                              "hash": {
+                                                "type": "string"
+                                              },
+                                              "ext": {
+                                                "type": "string"
+                                              },
+                                              "mime": {
+                                                "type": "string"
+                                              },
+                                              "size": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "url": {
+                                                "type": "string"
+                                              },
+                                              "previewUrl": {
+                                                "type": "string"
+                                              },
+                                              "provider": {
+                                                "type": "string"
+                                              },
+                                              "provider_metadata": {},
+                                              "related": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "folder": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "folderPath": {
+                                                "type": "string"
+                                              },
+                                              "createdAt": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "updatedAt": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "createdBy": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "updatedBy": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "attributes": {
+                                                        "type": "object",
+                                                        "properties": {}
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "planowanyKontakt": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "__component": {
+                                  "type": "string"
+                                },
+                                "kiedy": {
+                                  "type": "string",
+                                  "format": "date-time"
+                                },
+                                "uwagi": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "kredyty": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {
+                                    "imie": {
+                                      "type": "string"
+                                    },
+                                    "nazwisko": {
+                                      "type": "string"
+                                    },
+                                    "ulica": {
+                                      "type": "string"
+                                    },
+                                    "numerDomu": {
+                                      "type": "string"
+                                    },
+                                    "numerMieszkania": {
+                                      "type": "string"
+                                    },
+                                    "kodPocztowy": {
+                                      "type": "string"
+                                    },
+                                    "miasto": {
+                                      "type": "string"
+                                    },
+                                    "numerUmowyKredytowej": {
+                                      "type": "string"
+                                    },
+                                    "dataUmowyKredytowej": {
+                                      "type": "string",
+                                      "format": "date"
+                                    },
+                                    "dataPierwszejRaty": {
+                                      "type": "string",
+                                      "format": "date"
+                                    },
+                                    "kwotaWyplaconaPrzezBank": {
+                                      "type": "string"
+                                    },
+                                    "prowizjaKredytu": {
+                                      "type": "string"
+                                    },
+                                    "oprocentowanie": {
+                                      "type": "string"
+                                    },
+                                    "oprocentowanieTyp": {
+                                      "type": "string",
+                                      "enum": [
+                                        "stałe",
+                                        "zmienne"
+                                      ]
+                                    },
+                                    "ratyTyp": {
+                                      "type": "string",
+                                      "enum": [
+                                        "stale",
+                                        "maljace"
+                                      ]
+                                    },
+                                    "okresKredytuWMiesiacach": {
+                                      "type": "integer"
+                                    },
+                                    "ubezpieczenieKredytu": {
+                                      "type": "string"
+                                    },
+                                    "odsetkiKredytu": {
+                                      "type": "string"
+                                    },
+                                    "inneKosztyKredytu": {
+                                      "type": "string"
+                                    },
+                                    "rsso": {
+                                      "type": "string"
+                                    },
+                                    "calkowityKosztKredytu": {
+                                      "type": "string"
+                                    },
+                                    "calkowitaKwotaDoZaplaty": {
+                                      "type": "string"
+                                    },
+                                    "splaconeDoDnia": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "data": {
+                                                "type": "string",
+                                                "format": "date"
+                                              },
+                                              "kwota": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "pozostaloDoSplacenia": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "data": {
+                                                "type": "string",
+                                                "format": "date"
+                                              },
+                                              "kwota": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "status": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "typ": {
+                                                "type": "string",
+                                                "enum": [
+                                                  "odrzucony",
+                                                  "zaakceptowany"
+                                                ]
+                                              },
+                                              "wiadomosc": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "typPozyczki": {
+                                      "type": "string",
+                                      "enum": [
+                                        "gotowkowyKredyt",
+                                        "gotowkowyPozyczka",
+                                        "hipotekaPozyczka",
+                                        "hipotekaKredyt",
+                                        "samochodwyPozyczka",
+                                        "samochodwyKredyt",
+                                        "konsolidacjaPozyczka",
+                                        "konsolidacjaKredyt"
+                                      ]
+                                    },
+                                    "odsetkiDoZwrotuLacznie": {
+                                      "type": "string"
+                                    },
+                                    "oszczednoscNaPrzyszlychRatach": {
+                                      "type": "string"
+                                    },
+                                    "naszaProwizjaProcent": {
+                                      "type": "string"
+                                    },
+                                    "dokumentyKredytu": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "dokumenty": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "name": {
+                                                              "type": "string"
+                                                            },
+                                                            "alternativeText": {
+                                                              "type": "string"
+                                                            },
+                                                            "caption": {
+                                                              "type": "string"
+                                                            },
+                                                            "width": {
+                                                              "type": "integer"
+                                                            },
+                                                            "height": {
+                                                              "type": "integer"
+                                                            },
+                                                            "formats": {},
+                                                            "hash": {
+                                                              "type": "string"
+                                                            },
+                                                            "ext": {
+                                                              "type": "string"
+                                                            },
+                                                            "mime": {
+                                                              "type": "string"
+                                                            },
+                                                            "size": {
+                                                              "type": "number",
+                                                              "format": "float"
+                                                            },
+                                                            "url": {
+                                                              "type": "string"
+                                                            },
+                                                            "previewUrl": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider_metadata": {},
+                                                            "related": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folder": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folderPath": {
+                                                              "type": "string"
+                                                            },
+                                                            "createdAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "updatedAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "createdBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "updatedBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "dokumentyDlaKlienta": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "dokumenty": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "name": {
+                                                              "type": "string"
+                                                            },
+                                                            "alternativeText": {
+                                                              "type": "string"
+                                                            },
+                                                            "caption": {
+                                                              "type": "string"
+                                                            },
+                                                            "width": {
+                                                              "type": "integer"
+                                                            },
+                                                            "height": {
+                                                              "type": "integer"
+                                                            },
+                                                            "formats": {},
+                                                            "hash": {
+                                                              "type": "string"
+                                                            },
+                                                            "ext": {
+                                                              "type": "string"
+                                                            },
+                                                            "mime": {
+                                                              "type": "string"
+                                                            },
+                                                            "size": {
+                                                              "type": "number",
+                                                              "format": "float"
+                                                            },
+                                                            "url": {
+                                                              "type": "string"
+                                                            },
+                                                            "previewUrl": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider_metadata": {},
+                                                            "related": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folder": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folderPath": {
+                                                              "type": "string"
+                                                            },
+                                                            "createdAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "updatedAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "createdBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "updatedBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "lead": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "createdAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "updatedAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "publishedAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "createdBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "updatedBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "createdBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "updatedBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          },
+          "updatedBy": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "KredytyResponseDataObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/Kredyty"
+          }
+        }
+      },
+      "KredytyResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/KredytyResponseDataObject"
+          },
+          "meta": {
+            "type": "object"
+          }
+        }
+      },
+      "OthersSplaconeComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "kwota": {
+            "type": "string"
+          }
+        }
+      },
+      "OthersStatusComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "typ": {
+            "type": "string",
+            "enum": [
+              "odrzucony",
+              "zaakceptowany"
+            ]
+          },
+          "wiadomosc": {
+            "type": "string"
+          }
+        }
+      },
+      "OthersDokumentyComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "dokumenty": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "alternativeText": {
+                          "type": "string"
+                        },
+                        "caption": {
+                          "type": "string"
+                        },
+                        "width": {
+                          "type": "integer"
+                        },
+                        "height": {
+                          "type": "integer"
+                        },
+                        "formats": {},
+                        "hash": {
+                          "type": "string"
+                        },
+                        "ext": {
+                          "type": "string"
+                        },
+                        "mime": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": "number",
+                          "format": "float"
+                        },
+                        "url": {
+                          "type": "string"
+                        },
+                        "previewUrl": {
+                          "type": "string"
+                        },
+                        "provider": {
+                          "type": "string"
+                        },
+                        "provider_metadata": {},
+                        "related": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "attributes": {
+                                    "type": "object",
+                                    "properties": {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "folder": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "folderPath": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "createdBy": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "updatedBy": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "LeadRequest": {
         "type": "object",
         "required": [
@@ -2845,7 +4440,8 @@
               "secondName",
               "email",
               "phone",
-              "status"
+              "status",
+              "planowanyKontakt"
             ],
             "type": "object",
             "properties": {
@@ -2876,7 +4472,14 @@
                   "atLawyer",
                   "inCourt",
                   "wonInCourt",
-                  "lostInCourt"
+                  "lostInCourt",
+                  "nowy",
+                  "odrzucony",
+                  "zakonczony ",
+                  "analiza",
+                  "umowa",
+                  "dokumentacja",
+                  "prawnik"
                 ]
               },
               "pesel": {
@@ -2890,6 +4493,30 @@
                       "$ref": "#/components/schemas/OthersLoanComponent"
                     }
                   ]
+                }
+              },
+              "planowanyKontakt": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/OthersPlanowanyKontaktComponent"
+                    }
+                  ]
+                }
+              },
+              "kredyty": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
                 }
               }
             }
@@ -2949,7 +4576,8 @@
           "secondName",
           "email",
           "phone",
-          "status"
+          "status",
+          "planowanyKontakt"
         ],
         "properties": {
           "name": {
@@ -2979,7 +4607,14 @@
               "atLawyer",
               "inCourt",
               "wonInCourt",
-              "lostInCourt"
+              "lostInCourt",
+              "nowy",
+              "odrzucony",
+              "zakonczony ",
+              "analiza",
+              "umowa",
+              "dokumentacja",
+              "prawnik"
             ]
           },
           "pesel": {
@@ -2993,6 +4628,933 @@
                   "$ref": "#/components/schemas/OthersLoanComponent"
                 }
               ]
+            }
+          },
+          "planowanyKontakt": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/OthersPlanowanyKontaktComponent"
+                }
+              ]
+            }
+          },
+          "kredyty": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "attributes": {
+                      "type": "object",
+                      "properties": {
+                        "imie": {
+                          "type": "string"
+                        },
+                        "nazwisko": {
+                          "type": "string"
+                        },
+                        "ulica": {
+                          "type": "string"
+                        },
+                        "numerDomu": {
+                          "type": "string"
+                        },
+                        "numerMieszkania": {
+                          "type": "string"
+                        },
+                        "kodPocztowy": {
+                          "type": "string"
+                        },
+                        "miasto": {
+                          "type": "string"
+                        },
+                        "numerUmowyKredytowej": {
+                          "type": "string"
+                        },
+                        "dataUmowyKredytowej": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "dataPierwszejRaty": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "kwotaWyplaconaPrzezBank": {
+                          "type": "string"
+                        },
+                        "prowizjaKredytu": {
+                          "type": "string"
+                        },
+                        "oprocentowanie": {
+                          "type": "string"
+                        },
+                        "oprocentowanieTyp": {
+                          "type": "string",
+                          "enum": [
+                            "stałe",
+                            "zmienne"
+                          ]
+                        },
+                        "ratyTyp": {
+                          "type": "string",
+                          "enum": [
+                            "stale",
+                            "maljace"
+                          ]
+                        },
+                        "okresKredytuWMiesiacach": {
+                          "type": "integer"
+                        },
+                        "ubezpieczenieKredytu": {
+                          "type": "string"
+                        },
+                        "odsetkiKredytu": {
+                          "type": "string"
+                        },
+                        "inneKosztyKredytu": {
+                          "type": "string"
+                        },
+                        "rsso": {
+                          "type": "string"
+                        },
+                        "calkowityKosztKredytu": {
+                          "type": "string"
+                        },
+                        "calkowitaKwotaDoZaplaty": {
+                          "type": "string"
+                        },
+                        "splaconeDoDnia": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "__component": {
+                                    "type": "string"
+                                  },
+                                  "data": {
+                                    "type": "string",
+                                    "format": "date"
+                                  },
+                                  "kwota": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "pozostaloDoSplacenia": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "__component": {
+                                    "type": "string"
+                                  },
+                                  "data": {
+                                    "type": "string",
+                                    "format": "date"
+                                  },
+                                  "kwota": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "status": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "__component": {
+                                    "type": "string"
+                                  },
+                                  "typ": {
+                                    "type": "string",
+                                    "enum": [
+                                      "odrzucony",
+                                      "zaakceptowany"
+                                    ]
+                                  },
+                                  "wiadomosc": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "typPozyczki": {
+                          "type": "string",
+                          "enum": [
+                            "gotowkowyKredyt",
+                            "gotowkowyPozyczka",
+                            "hipotekaPozyczka",
+                            "hipotekaKredyt",
+                            "samochodwyPozyczka",
+                            "samochodwyKredyt",
+                            "konsolidacjaPozyczka",
+                            "konsolidacjaKredyt"
+                          ]
+                        },
+                        "odsetkiDoZwrotuLacznie": {
+                          "type": "string"
+                        },
+                        "oszczednoscNaPrzyszlychRatach": {
+                          "type": "string"
+                        },
+                        "naszaProwizjaProcent": {
+                          "type": "string"
+                        },
+                        "dokumentyKredytu": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "__component": {
+                                    "type": "string"
+                                  },
+                                  "dokumenty": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {
+                                                "name": {
+                                                  "type": "string"
+                                                },
+                                                "alternativeText": {
+                                                  "type": "string"
+                                                },
+                                                "caption": {
+                                                  "type": "string"
+                                                },
+                                                "width": {
+                                                  "type": "integer"
+                                                },
+                                                "height": {
+                                                  "type": "integer"
+                                                },
+                                                "formats": {},
+                                                "hash": {
+                                                  "type": "string"
+                                                },
+                                                "ext": {
+                                                  "type": "string"
+                                                },
+                                                "mime": {
+                                                  "type": "string"
+                                                },
+                                                "size": {
+                                                  "type": "number",
+                                                  "format": "float"
+                                                },
+                                                "url": {
+                                                  "type": "string"
+                                                },
+                                                "previewUrl": {
+                                                  "type": "string"
+                                                },
+                                                "provider": {
+                                                  "type": "string"
+                                                },
+                                                "provider_metadata": {},
+                                                "related": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "folder": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "folderPath": {
+                                                  "type": "string"
+                                                },
+                                                "createdAt": {
+                                                  "type": "string",
+                                                  "format": "date-time"
+                                                },
+                                                "updatedAt": {
+                                                  "type": "string",
+                                                  "format": "date-time"
+                                                },
+                                                "createdBy": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "updatedBy": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "dokumentyDlaKlienta": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "number"
+                                  },
+                                  "__component": {
+                                    "type": "string"
+                                  },
+                                  "dokumenty": {
+                                    "type": "object",
+                                    "properties": {
+                                      "data": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {
+                                                "name": {
+                                                  "type": "string"
+                                                },
+                                                "alternativeText": {
+                                                  "type": "string"
+                                                },
+                                                "caption": {
+                                                  "type": "string"
+                                                },
+                                                "width": {
+                                                  "type": "integer"
+                                                },
+                                                "height": {
+                                                  "type": "integer"
+                                                },
+                                                "formats": {},
+                                                "hash": {
+                                                  "type": "string"
+                                                },
+                                                "ext": {
+                                                  "type": "string"
+                                                },
+                                                "mime": {
+                                                  "type": "string"
+                                                },
+                                                "size": {
+                                                  "type": "number",
+                                                  "format": "float"
+                                                },
+                                                "url": {
+                                                  "type": "string"
+                                                },
+                                                "previewUrl": {
+                                                  "type": "string"
+                                                },
+                                                "provider": {
+                                                  "type": "string"
+                                                },
+                                                "provider_metadata": {},
+                                                "related": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "array",
+                                                      "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                          "id": {
+                                                            "type": "number"
+                                                          },
+                                                          "attributes": {
+                                                            "type": "object",
+                                                            "properties": {}
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "folder": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "folderPath": {
+                                                  "type": "string"
+                                                },
+                                                "createdAt": {
+                                                  "type": "string",
+                                                  "format": "date-time"
+                                                },
+                                                "updatedAt": {
+                                                  "type": "string",
+                                                  "format": "date-time"
+                                                },
+                                                "createdBy": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "updatedBy": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "data": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {}
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "lead": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "secondName": {
+                                      "type": "string"
+                                    },
+                                    "email": {
+                                      "type": "string",
+                                      "format": "email"
+                                    },
+                                    "phone": {
+                                      "type": "string"
+                                    },
+                                    "recid": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "new",
+                                        "waitForContract",
+                                        "rejected",
+                                        "recontact",
+                                        "atAnalysis",
+                                        "atLawyer",
+                                        "inCourt",
+                                        "wonInCourt",
+                                        "lostInCourt",
+                                        "nowy",
+                                        "odrzucony",
+                                        "zakonczony ",
+                                        "analiza",
+                                        "umowa",
+                                        "dokumentacja",
+                                        "prawnik"
+                                      ]
+                                    },
+                                    "pesel": {
+                                      "type": "string"
+                                    },
+                                    "loans": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "loanID": {
+                                                "type": "string"
+                                              },
+                                              "numberOfInstallments": {
+                                                "type": "integer"
+                                              },
+                                              "loanType": {
+                                                "type": "string",
+                                                "enum": [
+                                                  "mortgage",
+                                                  "cash"
+                                                ]
+                                              },
+                                              "loanStartDate": {
+                                                "type": "string",
+                                                "format": "date"
+                                              },
+                                              "amountDisbursedByBank": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "loanOriginationFees": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "loanInsuranceCost": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "otherLoanCosts": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "interestOnLoanOrigination": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "remainingLoanBalance": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "futureInstallmentSavings": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "ourCommissionForThisAgreement": {
+                                                "type": "number",
+                                                "format": "float"
+                                              },
+                                              "documents": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "data": {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "id": {
+                                                          "type": "number"
+                                                        },
+                                                        "attributes": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "name": {
+                                                              "type": "string"
+                                                            },
+                                                            "alternativeText": {
+                                                              "type": "string"
+                                                            },
+                                                            "caption": {
+                                                              "type": "string"
+                                                            },
+                                                            "width": {
+                                                              "type": "integer"
+                                                            },
+                                                            "height": {
+                                                              "type": "integer"
+                                                            },
+                                                            "formats": {},
+                                                            "hash": {
+                                                              "type": "string"
+                                                            },
+                                                            "ext": {
+                                                              "type": "string"
+                                                            },
+                                                            "mime": {
+                                                              "type": "string"
+                                                            },
+                                                            "size": {
+                                                              "type": "number",
+                                                              "format": "float"
+                                                            },
+                                                            "url": {
+                                                              "type": "string"
+                                                            },
+                                                            "previewUrl": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider": {
+                                                              "type": "string"
+                                                            },
+                                                            "provider_metadata": {},
+                                                            "related": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                      "id": {
+                                                                        "type": "number"
+                                                                      },
+                                                                      "attributes": {
+                                                                        "type": "object",
+                                                                        "properties": {}
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folder": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "folderPath": {
+                                                              "type": "string"
+                                                            },
+                                                            "createdAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "updatedAt": {
+                                                              "type": "string",
+                                                              "format": "date-time"
+                                                            },
+                                                            "createdBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "updatedBy": {
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "data": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                    "id": {
+                                                                      "type": "number"
+                                                                    },
+                                                                    "attributes": {
+                                                                      "type": "object",
+                                                                      "properties": {}
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "planowanyKontakt": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "__component": {
+                                                "type": "string"
+                                              },
+                                              "kiedy": {
+                                                "type": "string",
+                                                "format": "date-time"
+                                              },
+                                              "uwagi": {
+                                                "type": "string"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "kredyty": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "number"
+                                              },
+                                              "attributes": {
+                                                "type": "object",
+                                                "properties": {}
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "createdAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "updatedAt": {
+                                      "type": "string",
+                                      "format": "date-time"
+                                    },
+                                    "createdBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "updatedBy": {
+                                      "type": "object",
+                                      "properties": {
+                                        "data": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "number"
+                                            },
+                                            "attributes": {
+                                              "type": "object",
+                                              "properties": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "publishedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "createdBy": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "updatedBy": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "createdAt": {
@@ -3742,6 +6304,24 @@
                 }
               }
             }
+          }
+        }
+      },
+      "OthersPlanowanyKontaktComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "kiedy": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "uwagi": {
+            "type": "string"
           }
         }
       },
@@ -6973,6 +9553,511 @@
           }
         ],
         "operationId": "delete/customer-messages/{id}"
+      }
+    },
+    "/kredyties": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KredytyListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Kredyty"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by attributes ascending (asc) or descending (desc)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pagination[withCount]",
+            "in": "query",
+            "description": "Return page/pageSize (default: true)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "pagination[page]",
+            "in": "query",
+            "description": "Page number (default: 0)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[pageSize]",
+            "in": "query",
+            "description": "Page size (default: 25)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[start]",
+            "in": "query",
+            "description": "Offset value (default: 0)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "description": "Number of entities to return (default: 25)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Fields to return (ex: title,author)",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "populate",
+            "in": "query",
+            "description": "Relations to return",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Filters to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "object"
+            },
+            "style": "deepObject"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "Locale to apply",
+            "deprecated": false,
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "operationId": "get/kredyties"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KredytyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Kredyty"
+        ],
+        "parameters": [],
+        "operationId": "post/kredyties",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KredytyRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/kredyties/{id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KredytyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Kredyty"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "get/kredyties/{id}"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KredytyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Kredyty"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "put/kredyties/{id}",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KredytyRequest"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Kredyty"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "operationId": "delete/kredyties/{id}"
       }
     },
     "/leads": {
