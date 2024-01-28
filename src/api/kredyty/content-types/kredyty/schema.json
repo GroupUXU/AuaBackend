@@ -1,0 +1,177 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kredyties",
+  "info": {
+    "singularName": "kredyty",
+    "pluralName": "kredyties",
+    "displayName": "kredyty",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imie": {
+      "type": "string",
+      "required": true
+    },
+    "nazwisko": {
+      "type": "string",
+      "required": true
+    },
+    "ulica": {
+      "type": "string",
+      "required": false
+    },
+    "numerDomu": {
+      "type": "string",
+      "required": false
+    },
+    "numerMieszkania": {
+      "type": "string"
+    },
+    "kodPocztowy": {
+      "type": "string",
+      "required": false
+    },
+    "miasto": {
+      "type": "string",
+      "required": false
+    },
+    "numerUmowyKredytowej": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "dataUmowyKredytowej": {
+      "type": "date",
+      "required": true
+    },
+    "dataPierwszejRaty": {
+      "type": "date",
+      "required": true
+    },
+    "kwotaWyplaconaPrzezBank": {
+      "type": "string",
+      "required": true
+    },
+    "prowizjaKredytu": {
+      "type": "string",
+      "required": true
+    },
+    "oprocentowanie": {
+      "type": "string",
+      "required": true
+    },
+    "oprocentowanieTyp": {
+      "type": "enumeration",
+      "enum": [
+        "stałe",
+        "zmienne"
+      ],
+      "required": true
+    },
+    "ratyTyp": {
+      "type": "enumeration",
+      "enum": [
+        "stale",
+        "maljace"
+      ],
+      "required": true
+    },
+    "okresKredytuWMiesiacach": {
+      "type": "integer",
+      "required": true
+    },
+    "ubezpieczenieKredytu": {
+      "type": "string",
+      "required": true
+    },
+    "odsetkiKredytu": {
+      "type": "string",
+      "required": true
+    },
+    "inneKosztyKredytu": {
+      "type": "string",
+      "required": true
+    },
+    "rsso": {
+      "type": "string",
+      "required": true
+    },
+    "calkowityKosztKredytu": {
+      "type": "string",
+      "required": true
+    },
+    "calkowitaKwotaDoZaplaty": {
+      "type": "string",
+      "required": true
+    },
+    "splaconeDoDnia": {
+      "type": "dynamiczone",
+      "components": [
+        "others.splacone"
+      ],
+      "required": true
+    },
+    "pozostaloDoSplacenia": {
+      "type": "dynamiczone",
+      "components": [
+        "others.splacone"
+      ],
+      "required": true
+    },
+    "status": {
+      "type": "dynamiczone",
+      "components": [
+        "others.status"
+      ]
+    },
+    "typPozyczki": {
+      "type": "enumeration",
+      "enum": [
+        "gotowkowyKredyt",
+        "gotowkowyPozyczka",
+        "hipotekaPozyczka",
+        "hipotekaKredyt",
+        "samochodwyPozyczka",
+        "samochodwyKredyt",
+        "konsolidacjaPozyczka",
+        "konsolidacjaKredyt"
+      ]
+    },
+    "odsetkiDoZwrotuLacznie": {
+      "type": "string",
+      "required": true
+    },
+    "oszczednoscNaPrzyszlychRatach": {
+      "type": "string",
+      "required": true
+    },
+    "naszaProwizjaProcent": {
+      "type": "string",
+      "required": true,
+      "default": "50"
+    },
+    "dokumentyKredytu": {
+      "type": "dynamiczone",
+      "components": [
+        "others.dokumenty"
+      ]
+    },
+    "dokumentyDlaKlienta": {
+      "type": "dynamiczone",
+      "components": [
+        "others.dokumenty"
+      ],
+      "required": true
+    },
+    "lead": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lead.lead",
+      "inversedBy": "kredyty"
+    }
+  }
+}

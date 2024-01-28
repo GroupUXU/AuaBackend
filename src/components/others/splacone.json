@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_others_splacones",
+  "info": {
+    "displayName": "splacone",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "data": {
+      "type": "date",
+      "required": true
+    },
+    "kwota": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

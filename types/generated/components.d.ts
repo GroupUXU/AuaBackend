@@ -82,6 +82,17 @@ export interface ContentPartsYoutube extends Schema.Component {
   };
 }
 
+export interface OthersDokumenty extends Schema.Component {
+  collectionName: 'components_others_dokumenties';
+  info: {
+    displayName: 'dokumenty';
+    icon: 'file';
+  };
+  attributes: {
+    dokumenty: Attribute.Media & Attribute.Required;
+  };
+}
+
 export interface OthersEmail extends Schema.Component {
   collectionName: 'components_others_emails';
   info: {
@@ -132,6 +143,18 @@ export interface OthersPhone extends Schema.Component {
   };
 }
 
+export interface OthersPlanowanyKontakt extends Schema.Component {
+  collectionName: 'components_others_planowany_kontakts';
+  info: {
+    displayName: 'planowanyKontakt';
+    icon: 'calendar';
+  };
+  attributes: {
+    kiedy: Attribute.DateTime & Attribute.Required;
+    uwagi: Attribute.Text;
+  };
+}
+
 export interface OthersSeo extends Schema.Component {
   collectionName: 'components_others_seos';
   info: {
@@ -141,6 +164,43 @@ export interface OthersSeo extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Unique;
     description: Attribute.Text & Attribute.Unique;
+  };
+}
+
+export interface OthersSplacone extends Schema.Component {
+  collectionName: 'components_others_splacones';
+  info: {
+    displayName: 'splacone';
+    icon: 'calendar';
+  };
+  attributes: {
+    data: Attribute.Date & Attribute.Required;
+    kwota: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface OthersStatus extends Schema.Component {
+  collectionName: 'components_others_statuses';
+  info: {
+    displayName: 'status';
+    icon: 'check';
+  };
+  attributes: {
+    typ: Attribute.Enumeration<['odrzucony', 'zaakceptowany']> &
+      Attribute.Required;
+    wiadomosc: Attribute.Text;
+  };
+}
+
+export interface OthersTypPozyczki extends Schema.Component {
+  collectionName: 'components_others_typ_pozyczkis';
+  info: {
+    displayName: 'typPozyczki';
+    icon: 'briefcase';
+    description: '';
+  };
+  attributes: {
+    typ: Attribute.Enumeration<['pozyczka', 'kredyt', 'hipoteka']>;
   };
 }
 
@@ -165,10 +225,15 @@ declare module '@strapi/strapi' {
       'content-parts.txt': ContentPartsTxt;
       'content-parts.you-tube': ContentPartsYouTube;
       'content-parts.youtube': ContentPartsYoutube;
+      'others.dokumenty': OthersDokumenty;
       'others.email': OthersEmail;
       'others.loan': OthersLoan;
       'others.phone': OthersPhone;
+      'others.planowany-kontakt': OthersPlanowanyKontakt;
       'others.seo': OthersSeo;
+      'others.splacone': OthersSplacone;
+      'others.status': OthersStatus;
+      'others.typ-pozyczki': OthersTypPozyczki;
       'stats.views': StatsViews;
     }
   }
