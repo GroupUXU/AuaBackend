@@ -847,6 +847,51 @@ export interface ApiKredytyKredyty extends Schema.CollectionType {
       'manyToOne',
       'api::lead.lead'
     >;
+    bank: Attribute.Enumeration<
+      [
+        'PKO Bank Polski',
+        'Bank Pekao S.A.',
+        'ING Bank \u015Al\u0105ski',
+        'mBank',
+        'Santander Bank Polska',
+        'Alior Bank',
+        'BNP Paribas Bank Polska',
+        'Credit Agricole Polska',
+        'Getin Bank',
+        'Bank Millennium',
+        'Idea Bank',
+        'Bank Zachodni WBK (Santander)',
+        'Deutsche Bank Polska',
+        'Citibank Polska',
+        'Credit Agricole Bank Polska',
+        'Raiffeisen Bank Polska',
+        'Bank Ochrony \u015Arodowiska',
+        'BG\u017B BNP Paribas',
+        'Eurobank',
+        'Citi Handlowy',
+        'Noble Bank',
+        'Vivus',
+        'Ferratum Bank',
+        'Wonga',
+        'Provident',
+        'Kuki.pl',
+        'Smart Po\u017Cyczka',
+        'Ekspres Kasa',
+        'NetCredit',
+        'Tani Kredyt',
+        'Szybka Got\u00F3wka',
+        'Aasa Polska',
+        'Zaplo',
+        'Profi Credit',
+        'Kredito24',
+        'MoneyMan',
+        'Ferratum',
+        'Po\u017Cyczka Plus',
+        'ViaSMS',
+        'Extra Portfel',
+        'Super Grosz'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
