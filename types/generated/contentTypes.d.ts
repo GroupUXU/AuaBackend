@@ -789,7 +789,7 @@ export interface ApiKredytyKredyty extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     imie: Attribute.String & Attribute.Required;
@@ -894,7 +894,6 @@ export interface ApiKredytyKredyty extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::kredyty.kredyty',
       'oneToOne',
@@ -950,7 +949,6 @@ export interface ApiLeadLead extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'new'>;
     pesel: Attribute.String;
-    loans: Attribute.DynamicZone<['others.loan']>;
     planowanyKontakt: Attribute.DynamicZone<['others.planowany-kontakt']> &
       Attribute.Required;
     kredyty: Attribute.Relation<
