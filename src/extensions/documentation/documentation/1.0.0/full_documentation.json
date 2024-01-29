@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-28T11:10:20.912Z"
+    "x-generation-date": "2024-01-29T20:25:05.536Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -574,6 +574,7 @@
                                                                                         "action": {
                                                                                           "type": "string"
                                                                                         },
+                                                                                        "actionParameters": {},
                                                                                         "subject": {
                                                                                           "type": "string"
                                                                                         },
@@ -2618,6 +2619,7 @@
                                                   "action": {
                                                     "type": "string"
                                                   },
+                                                  "actionParameters": {},
                                                   "subject": {
                                                     "type": "string"
                                                   },
@@ -3329,18 +3331,9 @@
                       "status": {
                         "type": "string",
                         "enum": [
-                          "new",
-                          "waitForContract",
-                          "rejected",
-                          "recontact",
-                          "atAnalysis",
-                          "atLawyer",
-                          "inCourt",
-                          "wonInCourt",
-                          "lostInCourt",
                           "nowy",
                           "odrzucony",
-                          "zakonczony ",
+                          "zakonczony",
                           "analiza",
                           "umowa",
                           "dokumentacja",
@@ -4385,18 +4378,9 @@
               "status": {
                 "type": "string",
                 "enum": [
-                  "new",
-                  "waitForContract",
-                  "rejected",
-                  "recontact",
-                  "atAnalysis",
-                  "atLawyer",
-                  "inCourt",
-                  "wonInCourt",
-                  "lostInCourt",
                   "nowy",
                   "odrzucony",
-                  "zakonczony ",
+                  "zakonczony",
                   "analiza",
                   "umowa",
                   "dokumentacja",
@@ -4510,18 +4494,9 @@
           "status": {
             "type": "string",
             "enum": [
-              "new",
-              "waitForContract",
-              "rejected",
-              "recontact",
-              "atAnalysis",
-              "atLawyer",
-              "inCourt",
-              "wonInCourt",
-              "lostInCourt",
               "nowy",
               "odrzucony",
-              "zakonczony ",
+              "zakonczony",
               "analiza",
               "umowa",
               "dokumentacja",
@@ -5067,6 +5042,7 @@
                                                                                                                   "action": {
                                                                                                                     "type": "string"
                                                                                                                   },
+                                                                                                                  "actionParameters": {},
                                                                                                                   "subject": {
                                                                                                                     "type": "string"
                                                                                                                   },
@@ -5564,18 +5540,9 @@
                                     "status": {
                                       "type": "string",
                                       "enum": [
-                                        "new",
-                                        "waitForContract",
-                                        "rejected",
-                                        "recontact",
-                                        "atAnalysis",
-                                        "atLawyer",
-                                        "inCourt",
-                                        "wonInCourt",
-                                        "lostInCourt",
                                         "nowy",
                                         "odrzucony",
-                                        "zakonczony ",
+                                        "zakonczony",
                                         "analiza",
                                         "umowa",
                                         "dokumentacja",
@@ -6320,6 +6287,7 @@
                                                                                         "action": {
                                                                                           "type": "string"
                                                                                         },
+                                                                                        "actionParameters": {},
                                                                                         "subject": {
                                                                                           "type": "string"
                                                                                         },
