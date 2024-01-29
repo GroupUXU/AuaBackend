@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-29T20:25:05.536Z"
+    "x-generation-date": "2024-01-29T20:42:51.968Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -2965,16 +2965,6 @@
                   ]
                 }
               },
-              "status": {
-                "type": "array",
-                "items": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/OthersStatusComponent"
-                    }
-                  ]
-                }
-              },
               "typPozyczki": {
                 "type": "string",
                 "enum": [
@@ -3248,16 +3238,6 @@
               ]
             }
           },
-          "status": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/OthersStatusComponent"
-                }
-              ]
-            }
-          },
           "typPozyczki": {
             "type": "string",
             "enum": [
@@ -3501,34 +3481,6 @@
                                                 "format": "date"
                                               },
                                               "kwota": {
-                                                "type": "string"
-                                              }
-                                            }
-                                          }
-                                        ]
-                                      }
-                                    },
-                                    "status": {
-                                      "type": "array",
-                                      "items": {
-                                        "anyOf": [
-                                          {
-                                            "type": "object",
-                                            "properties": {
-                                              "id": {
-                                                "type": "number"
-                                              },
-                                              "__component": {
-                                                "type": "string"
-                                              },
-                                              "typ": {
-                                                "type": "string",
-                                                "enum": [
-                                                  "odrzucony",
-                                                  "zaakceptowany"
-                                                ]
-                                              },
-                                              "wiadomosc": {
                                                 "type": "string"
                                               }
                                             }
@@ -4168,27 +4120,6 @@
           }
         }
       },
-      "OthersStatusComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "__component": {
-            "type": "string"
-          },
-          "typ": {
-            "type": "string",
-            "enum": [
-              "odrzucony",
-              "zaakceptowany"
-            ]
-          },
-          "wiadomosc": {
-            "type": "string"
-          }
-        }
-      },
       "OthersDokumentyComponent": {
         "type": "object",
         "properties": {
@@ -4649,34 +4580,6 @@
                                     "format": "date"
                                   },
                                   "kwota": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        "status": {
-                          "type": "array",
-                          "items": {
-                            "anyOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "type": "number"
-                                  },
-                                  "__component": {
-                                    "type": "string"
-                                  },
-                                  "typ": {
-                                    "type": "string",
-                                    "enum": [
-                                      "odrzucony",
-                                      "zaakceptowany"
-                                    ]
-                                  },
-                                  "wiadomosc": {
                                     "type": "string"
                                   }
                                 }
