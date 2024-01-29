@@ -913,7 +913,6 @@ export interface ApiKredytyKredyty extends Schema.CollectionType {
       Attribute.Required;
     pozostaloDoSplacenia: Attribute.DynamicZone<['others.splacone']> &
       Attribute.Required;
-    status: Attribute.DynamicZone<['others.status']>;
     typPozyczki: Attribute.Enumeration<
       [
         'gotowkowyKredyt',

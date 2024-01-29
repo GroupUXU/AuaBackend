@@ -122,12 +122,6 @@
       ],
       "required": true
     },
-    "status": {
-      "type": "dynamiczone",
-      "components": [
-        "others.status"
-      ]
-    },
     "typPozyczki": {
       "type": "enumeration",
       "enum": [
