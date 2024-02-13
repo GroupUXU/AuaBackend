@@ -1014,7 +1014,7 @@ export interface ApiLeadLead extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     secondName: Attribute.String & Attribute.Required;
-    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    email: Attribute.Email & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     recid: Attribute.String;
     status: Attribute.Enumeration<
@@ -1029,10 +1029,9 @@ export interface ApiLeadLead extends Schema.CollectionType {
       ]
     > &
       Attribute.Required &
-      Attribute.DefaultTo<'new'>;
+      Attribute.DefaultTo<'nowy'>;
     pesel: Attribute.String;
-    planowanyKontakt: Attribute.DynamicZone<['others.planowany-kontakt']> &
-      Attribute.Required;
+    planowanyKontakt: Attribute.DynamicZone<['others.planowany-kontakt']>;
     kredyty: Attribute.Relation<
       'api::lead.lead',
       'oneToMany',

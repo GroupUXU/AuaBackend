@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-29T20:42:51.968Z"
+    "x-generation-date": "2024-02-13T20:24:33.549Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4285,8 +4285,7 @@
               "secondName",
               "email",
               "phone",
-              "status",
-              "planowanyKontakt"
+              "status"
             ],
             "type": "object",
             "properties": {
@@ -4402,8 +4401,7 @@
           "secondName",
           "email",
           "phone",
-          "status",
-          "planowanyKontakt"
+          "status"
         ],
         "properties": {
           "name": {
