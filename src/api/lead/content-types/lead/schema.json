@@ -14,8 +14,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "unique": false
+      "required": true
     },
     "secondName": {
       "type": "string",
@@ -23,8 +22,7 @@
     },
     "email": {
       "type": "email",
-      "required": true,
-      "unique": false
+      "required": true
     },
     "phone": {
       "type": "string",
