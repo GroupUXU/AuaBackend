@@ -52,8 +52,12 @@
       "type": "dynamiczone",
       "components": [
         "others.planowany-kontakt"
+<<<<<<< HEAD
       ],
       "required": false
+=======
+      ]
+>>>>>>> de876a1 (fix: field)
     },
     "kredyty": {
       "type": "relation",
