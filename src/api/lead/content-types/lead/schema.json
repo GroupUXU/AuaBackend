@@ -24,7 +24,7 @@
     "email": {
       "type": "email",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "phone": {
       "type": "string",
@@ -44,7 +44,7 @@
         "dokumentacja",
         "prawnik"
       ],
-      "default": "new",
+      "default": "nowy",
       "required": true
     },
     "pesel": {
@@ -55,7 +55,7 @@
       "components": [
         "others.planowany-kontakt"
       ],
-      "required": true
+      "required": false
     },
     "kredyty": {
       "type": "relation",
