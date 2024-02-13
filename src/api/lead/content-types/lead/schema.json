@@ -43,7 +43,7 @@
         "prawnik"
       ],
       "default": "nowy",
-      "required": true
+      "required": false
     },
     "pesel": {
       "type": "string"
@@ -52,12 +52,7 @@
       "type": "dynamiczone",
       "components": [
         "others.planowany-kontakt"
-<<<<<<< HEAD
-      ],
-      "required": false
-=======
       ]
->>>>>>> de876a1 (fix: field)
     },
     "kredyty": {
       "type": "relation",

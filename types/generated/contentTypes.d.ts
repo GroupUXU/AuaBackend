@@ -1028,7 +1028,6 @@ export interface ApiLeadLead extends Schema.CollectionType {
         'prawnik'
       ]
     > &
-      Attribute.Required &
       Attribute.DefaultTo<'nowy'>;
     pesel: Attribute.String;
     planowanyKontakt: Attribute.DynamicZone<['others.planowany-kontakt']>;
